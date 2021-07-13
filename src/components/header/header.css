@@ -1,0 +1,11 @@
+.header {
+  background-color: #222831;
+  width: 100vw;
+  height: 80px;
+  color: whitesmoke;
+}
+
+.header > h2 {
+  padding: 30px;
+  font-size: 26px;
+}

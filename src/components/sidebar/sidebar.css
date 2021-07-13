@@ -1,0 +1,27 @@
+.sidebar {
+  /* background-color: #222831; */
+  background-color: black;
+  color: whitesmoke;
+  width: 280px;
+  height: 92vh;
+  padding: 30px;
+}
+
+.sidebar > button {
+  letter-spacing: 1px;
+  border-style: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: black;
+  color: whitesmoke;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.sidebar > button:hover {
+  background-color: #222831;
+}
