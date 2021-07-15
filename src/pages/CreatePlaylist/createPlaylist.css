@@ -1,0 +1,17 @@
+.create-playlist {
+  background-color: #eeee;
+  width: 100%;
+}
+
+.create-playlist > h1 {
+  padding: 30px;
+}
+
+.create-playlist-detail {
+  display: flex;
+  padding-left: 30px;
+}
+
+.create-playlist-detail > .details {
+  margin-left: 30px;
+}

@@ -1,0 +1,18 @@
+button {
+  margin-top: 10px;
+  border-style: none;
+  padding: 8px;
+  background-color: #c4c4c4;
+  font-weight: bold;
+  width: 120px;
+  border-radius: 6px;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: grey;
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 0 rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  color: whitesmoke;
+}
