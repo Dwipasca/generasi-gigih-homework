@@ -1,6 +1,6 @@
 import React from "react";
-import "./image.css";
+import style from "./image.module.css";
 
 export default function Image(props) {
-  return <img src={props.src} alt={props.alt} />;
+  return <img className={style.img} src={props.src} alt={props.alt} />;
 }

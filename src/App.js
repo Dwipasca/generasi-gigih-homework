@@ -3,7 +3,10 @@ import Header from "./components/header";
 import Sidebar from "./components/sidebar";
 import CreatePlaylist from "./pages/CreatePlaylist/CreatePlaylist";
 
+import datas from "./constants/ListMusic";
+
 function App() {
+  console.log(datas);
   return (
     <div className="app">
       <div>
@@ -11,7 +14,7 @@ function App() {
       </div>
       <div className="body">
         <Sidebar />
-        <CreatePlaylist />
+        <CreatePlaylist datas={datas} />
       </div>
     </div>
   );

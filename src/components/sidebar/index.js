@@ -1,9 +1,9 @@
 import React from "react";
-import "./sidebar.css";
+import style from "./sidebar.module.css";
 
 export default function Sidebar() {
   return (
-    <div className="sidebar">
+    <div className={style.sidebar}>
       <button> + Create Playlist</button>
     </div>
   );

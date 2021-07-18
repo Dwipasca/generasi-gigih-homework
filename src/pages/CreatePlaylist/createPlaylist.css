@@ -4,14 +4,20 @@
 }
 
 .create-playlist > h1 {
-  padding: 30px;
+  padding: 40px 30px 30px 50px;
 }
 
 .create-playlist-detail {
   display: flex;
-  padding-left: 30px;
+  padding-left: 50px;
 }
 
 .create-playlist-detail > .details {
   margin-left: 30px;
+}
+
+.list-track {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
