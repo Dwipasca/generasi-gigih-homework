@@ -3,11 +3,13 @@
   margin: 0;
   padding: 0;
 }
-/* .app {
-  display: flex;
-  flex-direction: column;
-}
+.app {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  /* grid-template-rows: 1fr 1fr; */
+  grid-template-areas:
+    "sidebar header"
+    "sidebar header";
 
-.app > .body {
-  display: flex;
-} */
+  background-color: #ffffff;
+}
