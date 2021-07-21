@@ -17,7 +17,18 @@
 }
 
 .list-track {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+table {
+  width: 100%;
+}
+
+.table thead {
+  background-color: honeydew;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: hotpink;
 }

@@ -2,5 +2,16 @@
   margin: 30px;
   padding: 10px;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.list-track {
+  background-color: #121212;
+  color: #fff;
+  width: 80vw;
+}
+
+.list-track thead {
+  background-color: black;
+  padding: 200px;
 }

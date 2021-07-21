@@ -25,16 +25,20 @@ export default function CreatePlaylist() {
       </div>
 
       <div className="list-track">
-        {Datas.map((data) => {
+        <TrackList />
+        {/* {Datas.map((data) => {
           console.log(data.album.images[1].url);
           return (
-            <TrackList
-              key={data.id}
-              image={data.album.images[1].url}
-              title={data.name}
-            />
+            <div>
+              <TrackList
+                key={data.id}
+                image={data.album.images[1].url}
+                title={data.name}
+              />
+              <TagP value={data.name} />
+            </div>
           );
-        })}
+        })} */}
       </div>
     </div>
   );
