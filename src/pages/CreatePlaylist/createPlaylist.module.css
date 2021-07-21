@@ -1,9 +1,9 @@
-.create-playlist {
+.wrapper-create-playlist {
   background-color: #eeee;
   width: 100%;
 }
 
-.create-playlist > h1 {
+.wrapper-create-playlist > h1 {
   padding: 40px 30px 30px 50px;
 }
 
