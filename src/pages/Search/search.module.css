@@ -1,32 +1,20 @@
-.wrapper {
-  display: grid;
+.wrapper-search {
+  /* background-color: greenyellow; */
   background-color: #181818;
-  height: auto;
-}
-
-.navbar {
-  background-color: #121212;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-}
-
-.navbar button {
-  padding: 10px;
-  align-items: center;
-  margin: 20px;
-  cursor: pointer;
-  border-style: none;
+  min-height: 100vh;
 }
 
 .search-bar {
   background-color: #181818;
-  padding: 20px;
+  padding: 30px;
 }
 
 .search-bar input {
   border-style: none;
   padding: 10px;
+  width: 250px;
+  border-radius: 8px;
+  margin-right: 10px;
 }
 
 .search-bar button {
@@ -35,34 +23,19 @@
   border-style: none;
   padding: 10px;
   cursor: pointer;
+  border-radius: 8px;
+  width: 100px;
+  font-weight: bold;
 }
 
-.wrapper-table {
-  height: 100vh;
-  background-color: #181818;
-  color: white;
+.search-bar button:hover {
+  background-color: green;
 }
 
-.track-list {
-  justify-content: space-around;
-  color: #fefefe;
-  width: 80%;
-  margin: auto;
-  border: none;
-  background-color: #121212;
+.list-track {
+  /* background-color: #595959; */
+  padding: 30px;
+  color: gainsboro;
 }
 
-.track-list thead th {
-  padding: 20px;
-  border-bottom: 2px solid whitesmoke;
-}
-
-.track-list tbody td {
-  padding: 10px;
-  text-align: center;
-  /* background-color: antiquewhite; */
-}
-
-.track-list tbody td img {
-  width: 50px;
-}
+/* ---------------------------------------- */

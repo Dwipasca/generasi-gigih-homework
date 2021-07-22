@@ -6,10 +6,22 @@
 .app {
   display: grid;
   grid-template-columns: 20% 80%;
-  /* grid-template-rows: 1fr 1fr; */
+  grid-template-rows: 70px 1fr;
   grid-template-areas:
     "sidebar header"
-    "sidebar header";
+    "sidebar content";
 
   background-color: #ffffff;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.header {
+  grid-area: header;
+}
+
+.content {
+  grid-area: content;
 }

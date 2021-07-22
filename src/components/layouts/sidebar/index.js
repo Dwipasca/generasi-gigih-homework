@@ -8,8 +8,8 @@ export default function Sidebar() {
         <h2>Music Player</h2>
       </div>
       <div className={style["menu"]}>
-        <button> Create Playlist</button>
         <button> Search</button>
+        <button> Create Playlist</button>
       </div>
     </div>
   );
