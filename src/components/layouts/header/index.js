@@ -17,7 +17,7 @@ const Header = ({ loginSpotify }) => {
   return (
     <div className={style["wrapper-header"]}>
       <div className={style["page-title"]}>
-        <h2>Search Playlist</h2>
+        <h2>Create Playlist</h2>
       </div>
       <div className={style["menu"]}>
         <button

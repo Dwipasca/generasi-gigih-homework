@@ -9,6 +9,8 @@ export default function Search({ getAccessTokenFromURL }) {
   const [token, setToken] = useState("");
   const [search, setSearch] = useState("");
   const [tracks, setTracks] = useState([]);
+  const [playlist, setPlaylist] = useState([]);
+  const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
     if (window.location.hash) {
@@ -34,8 +36,6 @@ export default function Search({ getAccessTokenFromURL }) {
     }
   };
 
-  console.log(tracks);
-
   return (
     <div className={style["wrapper-search"]}>
       <div className={style["search-bar"]}>
@@ -51,7 +51,13 @@ export default function Search({ getAccessTokenFromURL }) {
 
       <div className={style["list-track"]}>
         {tracks.length > 0 ? (
-          <TrackList tracks={tracks} />
+          <TrackList
+            tracks={tracks}
+            playlist={playlist}
+            setPlaylist={setPlaylist}
+            isSelected={isSelected}
+            setIsSelected={setIsSelected}
+          />
         ) : (
           <MessageNotFound search={search} />
         )}
