@@ -1,0 +1,34 @@
+.wrapper-create-playlist {
+  background-color: #eeee;
+  width: 100%;
+}
+
+.wrapper-create-playlist > h1 {
+  padding: 40px 30px 30px 50px;
+}
+
+.create-playlist-detail {
+  display: flex;
+  padding-left: 50px;
+}
+
+.create-playlist-detail > .details {
+  margin-left: 30px;
+}
+
+.list-track {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+table {
+  width: 100%;
+}
+
+.table thead {
+  background-color: honeydew;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: hotpink;
+}

@@ -1,0 +1,41 @@
+.wrapper-search {
+  /* background-color: greenyellow; */
+  background-color: #181818;
+  min-height: 100vh;
+}
+
+.search-bar {
+  background-color: #181818;
+  padding: 30px;
+}
+
+.search-bar input {
+  border-style: none;
+  padding: 10px;
+  width: 250px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.search-bar button {
+  background-color: #1db954;
+  color: whitesmoke;
+  border-style: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100px;
+  font-weight: bold;
+}
+
+.search-bar button:hover {
+  background-color: green;
+}
+
+.list-track {
+  /* background-color: #595959; */
+  padding: 30px;
+  color: gainsboro;
+}
+
+/* ---------------------------------------- */

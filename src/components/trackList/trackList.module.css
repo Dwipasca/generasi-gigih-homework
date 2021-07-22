@@ -1,0 +1,14 @@
+.table {
+  width: 100%;
+}
+
+.table th {
+  border-bottom: 1px solid gainsboro;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+.table td {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}

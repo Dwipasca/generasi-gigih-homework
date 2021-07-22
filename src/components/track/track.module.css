@@ -1,0 +1,10 @@
+.btn-select {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #1db954;
+  color: white;
+  font-weight: bold;
+  margin-right: 10px;
+  cursor: pointer;
+}
