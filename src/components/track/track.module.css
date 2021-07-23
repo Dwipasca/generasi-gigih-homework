@@ -8,3 +8,11 @@
   margin-right: 10px;
   cursor: pointer;
 }
+
+.btn-select:hover {
+  background-color: green;
+}
+
+p {
+  margin-bottom: 5px;
+}

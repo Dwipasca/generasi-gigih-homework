@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import style from "./header.module.css";
 
+import Button from "../../button";
+
 const Header = ({ loginSpotify }) => {
   const [isLogin, setIsLogin] = useState(false);
 
@@ -20,13 +22,14 @@ const Header = ({ loginSpotify }) => {
         <h2>Create Playlist</h2>
       </div>
       <div className={style["menu"]}>
-        <button
-          id="btn-login-spotify"
+        <Button
           onClick={(e) => handleButtonLoginClick(e)}
-          value={isLogin}
+          buttonStyle="btn-success"
+          buttonSize="btn-medium"
+          type="button"
         >
           {isLogin === true ? "login spotify" : "logout spotify"}
-        </button>
+        </Button>
       </div>
     </div>
   );

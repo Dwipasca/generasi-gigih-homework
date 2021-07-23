@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import TrackList from "../../components/trackList";
 import MessageNotFound from "../../components/messageNotFound";
-
+import Button from "../../components/button";
 import style from "./search.module.css";
 
 export default function Search({ getAccessTokenFromURL }) {
@@ -10,14 +10,13 @@ export default function Search({ getAccessTokenFromURL }) {
   const [search, setSearch] = useState("");
   const [tracks, setTracks] = useState([]);
   const [playlist, setPlaylist] = useState([]);
-  const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
     if (window.location.hash) {
       const { access_token } = getAccessTokenFromURL(window.location.hash);
       setToken(access_token);
     }
-  }, []);
+  }, [getAccessTokenFromURL]);
 
   const buttonHandleSearch = () => {
     if (search === "") {
@@ -44,9 +43,14 @@ export default function Search({ getAccessTokenFromURL }) {
           onChange={(e) => setSearch(e.target.value)}
           value={search}
         />
-        <button id="btn-search" onClick={buttonHandleSearch}>
+        <Button
+          onClick={buttonHandleSearch}
+          buttonStyle="btn-success"
+          buttonSize="btn-medium"
+          type="button"
+        >
           Search
-        </button>
+        </Button>
       </div>
 
       <div className={style["list-track"]}>
@@ -55,8 +59,6 @@ export default function Search({ getAccessTokenFromURL }) {
             tracks={tracks}
             playlist={playlist}
             setPlaylist={setPlaylist}
-            isSelected={isSelected}
-            setIsSelected={setIsSelected}
           />
         ) : (
           <MessageNotFound search={search} />

@@ -5,7 +5,7 @@ import Search from "./pages/Search";
 
 import { loginSpotify, getAccessTokenFromURL } from "./functions/auth";
 
-import "./app.css";
+import "./App.css";
 
 function App() {
   return (

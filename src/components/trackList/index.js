@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import Track from "../../components/track";
 
@@ -17,18 +17,20 @@ const TrackList = ({ tracks, playlist, setPlaylist }) => {
           <th>Action</th>
         </tr>
       </thead>
-      {tracks.map((track, id) => {
-        // console.log(track);
-        return (
-          <Track
-            key={track.id}
-            id={id}
-            track={track}
-            playlist={playlist}
-            setPlaylist={setPlaylist}
-          />
-        );
-      })}
+      <tbody>
+        {tracks.map((track, id) => {
+          // console.log(track);
+          return (
+            <Track
+              key={track.id}
+              id={id}
+              track={track}
+              playlist={playlist}
+              setPlaylist={setPlaylist}
+            />
+          );
+        })}
+      </tbody>
     </table>
   );
 };

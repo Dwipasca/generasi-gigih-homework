@@ -6,6 +6,7 @@
 
 .search-bar {
   background-color: #181818;
+
   padding: 30px;
 }
 
@@ -18,14 +19,7 @@
 }
 
 .search-bar button {
-  background-color: #1db954;
-  color: whitesmoke;
-  border-style: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 8px;
   width: 100px;
-  font-weight: bold;
 }
 
 .search-bar button:hover {
