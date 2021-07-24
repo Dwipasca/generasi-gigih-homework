@@ -1,15 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
 import convertDuration from "../../functions/convertDuration";
 
 import style from "./track.module.css";
 
 const Track = ({ track, playlist, setPlaylist, id }) => {
-  const [isSelected, setIsSelected] = useState(false);
-
   const handleButtonSelect = (e) => {
     let uri = e.target.value;
-    setIsSelected(!isSelected);
     if (playlist.includes(uri)) {
       let newPlaylist = playlist.filter((track) => track !== uri);
       setPlaylist(newPlaylist);

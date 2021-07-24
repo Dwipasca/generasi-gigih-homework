@@ -1,9 +1,9 @@
-const loginSpotify = () => {
-  let CLIENT_ID = process.env.REACT_APP_SPOTIFY_ID;
-  let SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
-  let REDIRECT_URL_AFTER_LOGIN = process.env.REACT_APP_BASE_URL;
-  let SCOPE = "playlist-modify-private";
+const CLIENT_ID = process.env.REACT_APP_SPOTIFY_ID;
+const SPOTIFY_AUTHORIZE_ENDPOINT = "https://accounts.spotify.com/authorize";
+const REDIRECT_URL_AFTER_LOGIN = process.env.REACT_APP_BASE_URL;
+const SCOPE = ["playlist-modify-private", "user-read-email"];
 
+const loginSpotify = () => {
   window.location = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPE}&response_type=token&show_dialog=true`;
 };
 
@@ -19,4 +19,12 @@ const getAccessTokenFromURL = (hash) => {
   return paramSplitUp;
 };
 
-export { loginSpotify, getAccessTokenFromURL };
+const getProfile = (accessToken) => {
+  return fetch("https://api.spotify.com/v1/me", {
+    headers: {
+      Authorization: "Bearer " + accessToken,
+    },
+  }).then((res) => res.json());
+};
+
+export { loginSpotify, getAccessTokenFromURL, getProfile };
