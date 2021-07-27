@@ -1,14 +1,12 @@
 import Sidebar from "./components/layouts/sidebar";
 import Header from "./components/layouts/header";
 
-// import Search from "./pages/Search";
 import CreatePlaylist from "./pages/CreatePlaylist";
 
 import {
-  loginSpotify,
+  loginAuthorizeSpotify,
   getAccessTokenFromURL,
-  getProfile,
-} from "./functions/auth";
+} from "./services/authSpotify";
 
 import "./App.css";
 
@@ -19,15 +17,13 @@ function App() {
         <Sidebar />
       </div>
       <div className="header">
-        {/* <Header loginSpotify={loginSpotify} namePage="Search" /> */}
-        <Header loginSpotify={loginSpotify} namePage="Create Playlist" />
+        <Header
+          loginAuthorizeSpotify={loginAuthorizeSpotify}
+          namePage="Create Playlist"
+        />
       </div>
       <div className="content">
-        {/* <Search getAccessTokenFromURL={getAccessTokenFromURL} /> */}
-        <CreatePlaylist
-          getAccessTokenFromURL={getAccessTokenFromURL}
-          getProfile={getProfile}
-        />
+        <CreatePlaylist getAccessTokenFromURL={getAccessTokenFromURL} />
       </div>
     </div>
   );

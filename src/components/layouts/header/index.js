@@ -3,16 +3,13 @@ import style from "./header.module.css";
 
 import Button from "../../button";
 
-const Header = ({ loginSpotify, namePage }) => {
+const Header = ({ loginAuthorizeSpotify, namePage }) => {
   const [isLogin, setIsLogin] = useState(false);
 
-  const handleButtonLoginClick = (e) => {
+  const handleButtonLoginClick = () => {
     setIsLogin(!isLogin);
-    // alert(isLogin);
-
     if (isLogin === true) {
-      loginSpotify();
-      // alert("berhasil");
+      loginAuthorizeSpotify();
     }
   };
 
@@ -23,12 +20,12 @@ const Header = ({ loginSpotify, namePage }) => {
       </div>
       <div className={style["menu"]}>
         <Button
-          onClick={(e) => handleButtonLoginClick(e)}
+          onClick={handleButtonLoginClick}
           buttonStyle="btn-success"
           buttonSize="btn-medium"
           type="button"
         >
-          {isLogin === true ? "login spotify" : "logout spotify"}
+          {isLogin ? "login spotify" : "logout spotify"}
         </Button>
       </div>
     </div>
