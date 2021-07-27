@@ -5,6 +5,10 @@ import MessageNotFound from "../../components/messageNotFound";
 import Button from "../../components/button";
 import FormCreateNewPlaylist from "../../components/formCreateNewPlaylist";
 
+// ! redux area
+import { useSelector, useDispatch } from "react-redux";
+import { setToken } from "../../redux/tokenSlice";
+
 import style from "./createPlaylist.module.css";
 
 import {
@@ -15,7 +19,9 @@ import {
 } from "../../services/apiSpotify";
 
 export default function CreatePlaylist({ getAccessTokenFromURL }) {
-  const [token, setToken] = useState("");
+  const token = useSelector((state) => state.token.value);
+  const dispatch = useDispatch();
+
   const [userID, setUserID] = useState("");
   const [search, setSearch] = useState("");
   const [tracks, setTracks] = useState([]);
@@ -30,10 +36,12 @@ export default function CreatePlaylist({ getAccessTokenFromURL }) {
   useEffect(() => {
     if (window.location.hash) {
       const { access_token } = getAccessTokenFromURL(window.location.hash);
-      setToken(access_token);
+
+      dispatch(setToken(access_token));
+
       getProfile(access_token).then((data) => setUserID(data.id));
     }
-  }, [getAccessTokenFromURL]);
+  }, [dispatch, getAccessTokenFromURL]);
 
   const buttonHandleSearch = () => {
     if (search === "") {
