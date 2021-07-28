@@ -5,24 +5,8 @@
 
 .search-bar {
   background-color: #181818;
-  padding: 30px;
+  padding: 10px 30px;
   color: white;
-}
-
-.search-bar input {
-  border-style: none;
-  padding: 10px;
-  width: 250px;
-  border-radius: 8px;
-  margin-right: 10px;
-}
-
-.search-bar button {
-  width: 100px;
-}
-
-.search-bar button:hover {
-  background-color: green;
 }
 
 .list-track {
@@ -31,6 +15,6 @@
 }
 
 .form-create-playlist {
-  background-color: gainsboro;
   padding: 30px;
+  color: gainsboro;
 }

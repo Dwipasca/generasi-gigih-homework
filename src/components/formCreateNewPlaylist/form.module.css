@@ -1,7 +1,6 @@
 .form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
 }
 
 .form label {
@@ -9,11 +8,32 @@
 }
 
 .form input {
-  padding: 10px;
+  padding: 10px 20px;
+  background-color: black;
+  border: none;
+  outline: none;
+  color: white;
+
+  border-radius: 8px;
+}
+
+.form textarea {
+  padding: 10px 20px;
+  background-color: black;
+  border: none;
+  outline: none;
+  color: white;
+
+  border-radius: 8px;
 }
 
 .form button {
   margin: 10px 0px;
   padding: 10px;
   cursor: pointer;
+  background-color: #1db954;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
 }

@@ -14,7 +14,7 @@ const FormCreateNewPlaylist = ({
 
   return (
     <form onSubmit={handleFormSubmit} className={style["form"]}>
-      <label htmlFor="name">Name New Playlist</label>
+      <label htmlFor="name">Name </label>
       <input
         id="name"
         name="name"
@@ -22,6 +22,7 @@ const FormCreateNewPlaylist = ({
         minLength="10"
         value={postPlaylist.name}
         onChange={handleChange}
+        autoComplete="off"
       />
       <label htmlFor="description">Description</label>
       <textarea
@@ -32,6 +33,7 @@ const FormCreateNewPlaylist = ({
         onChange={handleChange}
         rows="10"
         cols="50"
+        autoComplete="off"
       ></textarea>
       <button type="submit">Create New Playlist</button>
     </form>

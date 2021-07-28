@@ -1,0 +1,16 @@
+.wrapper-search-bar input {
+  border-style: none;
+  padding: 10px;
+  width: 250px;
+  border-radius: 8px;
+  margin-right: 10px;
+  outline: none;
+}
+
+.wrapper-search-bar button {
+  width: 100px;
+}
+
+.wrapper-search-bar button:hover {
+  background-color: green;
+}

@@ -25,4 +25,5 @@
 
 .content {
   grid-area: content;
+  background-color: #181818;
 }
