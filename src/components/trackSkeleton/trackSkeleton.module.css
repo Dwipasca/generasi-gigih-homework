@@ -1,7 +1,7 @@
 .wrapper-track-list {
   padding: 10px;
   margin: 10px 0px;
-  background-color: ghostwhite;
+  background-color: whitesmoke;
   display: grid;
   grid-template-columns: 40px 80px 3fr 1fr 1fr;
   grid-template-rows: 30px 30px;
@@ -27,7 +27,7 @@
 
 .track-image {
   grid-area: image;
-  background-color: gold;
+  background-color: gray;
 }
 
 .track-title {
