@@ -1,0 +1,37 @@
+.wrapper-home {
+  background-color: #222222;
+  width: 100vw;
+  height: 100vh;
+  color: whitesmoke;
+}
+
+.banner {
+  /* padding: 50px; */
+  display: grid;
+  row-gap: 20px;
+  width: 30%;
+  margin: 10% auto;
+  text-align: center;
+  /* background-color: forestgreen; */
+}
+
+.banner h1 {
+  font-size: 40px;
+}
+
+.banner button {
+  margin: auto;
+  padding: 12px;
+  font-size: 12px;
+  border-radius: 20px;
+  letter-spacing: 2px;
+  border: none;
+  color: white;
+  width: 250px;
+  background-color: forestgreen;
+  cursor: pointer;
+}
+
+.banner button:hover {
+  background-color: green;
+}
