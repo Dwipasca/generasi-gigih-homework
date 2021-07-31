@@ -20,7 +20,7 @@
 }
 
 .banner button {
-  margin: auto;
+  margin: 20px auto;
   padding: 12px;
   font-size: 12px;
   border-radius: 20px;
@@ -30,6 +30,7 @@
   width: 250px;
   background-color: forestgreen;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .banner button:hover {

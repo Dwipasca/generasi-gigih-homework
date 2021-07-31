@@ -1,54 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
+// ? components
+// import Navbar from "./components/layouts/navbar";
+import PrivateRoute from "./components/router/privateRouter";
+
+//  ? pages
 import Home from "./pages/Home";
-import Main from "./components/layouts/main";
+import CreatePlaylist from "./pages/CreatePlaylist";
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+// ? lib third party
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import { getAccessTokenFromURL } from "./services/authSpotify";
-
-import { getProfile } from "./services/apiSpotify";
-
-// ! redux area
-import { useSelector, useDispatch } from "react-redux";
-import { setToken } from "./redux/tokenSlice";
+// ! redux store
+import store from "./redux/store";
 
 import "./App.css";
 
 function App() {
-  // const token = useSelector((state) => state.token.value);
-  const token = useSelector((state) => state.token.token);
-  const dispatch = useDispatch();
-
-  const [userID, setUserID] = useState("");
-
-  useEffect(() => {
-    if (window.location.hash) {
-      const { access_token } = getAccessTokenFromURL(window.location.hash);
-
-      dispatch(setToken(access_token));
-
-      getProfile(access_token).then((data) => setUserID(data.id));
-    }
-  }, [dispatch]);
-
-  console.log(userID);
-
   return (
     <div className="app">
-      <Router>
-        <Switch>
-          <Route path="/create-playlist">
-            {token !== "" ? <Main /> : <Redirect to="/" />}
-          </Route>
-          <Route path="/">{token !== "" ? <Main /> : <Home />}</Route>
-        </Switch>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <PrivateRoute
+              component={CreatePlaylist}
+              path="/create-playlist"
+              exact
+            />
+          </Switch>
+        </Router>
+      </Provider>
     </div>
   );
 }

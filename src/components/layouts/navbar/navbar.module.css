@@ -1,0 +1,35 @@
+.wrapper-navbar {
+  color: whitesmoke;
+  width: 100vw;
+  height: 70px;
+  background-color: #252a34;
+  display: grid;
+  grid-template-areas: "logo menus";
+  grid-template-columns: 1fr 2fr;
+}
+
+.logo {
+  grid-area: logo;
+  padding: 20px 30px;
+}
+
+.menus {
+  grid-area: menus;
+  padding: 25px 30px;
+  justify-self: end;
+}
+
+.menu {
+  color: whitesmoke;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0px 10px;
+  padding: 5px 25px;
+  border: none;
+  background-color: #252a34;
+}
+
+.menu:hover {
+  color: gainsboro;
+  cursor: pointer;
+}

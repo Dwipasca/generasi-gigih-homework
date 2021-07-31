@@ -20,13 +20,13 @@ const Track = ({ track, id, selectedTracks, setSelectedTracks }) => {
         <p>{id + 1}</p>
       </div>
       <div className={style["track-image"]}>
-        <img src={track?.album.images[2].url} alt={track.name} />
+        <img src={track.album?.images[2].url} alt={track.name} />
       </div>
       <div className={style["track-title"]}>
         <p>{track?.name}</p>
       </div>
       <div className={style["track-artist"]}>
-        <p>{track?.artists[0].name}</p>
+        <p>{track.artists[0]?.name}</p>
       </div>
 
       <div className={style["track-duration"]}>
