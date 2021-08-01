@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 // ? lib third party
 import { useSelector, useDispatch } from "react-redux";
+import toast, { Toaster } from "react-hot-toast";
 
 //  ? components
 import SearchBar from "components/searchBar";
@@ -32,7 +33,6 @@ export default function CreatePlaylist() {
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(false);
-
   const [search, setSearch] = useState("");
   const [selectedTracks, setSelectedTracks] = useState([]);
 
@@ -46,7 +46,7 @@ export default function CreatePlaylist() {
   const buttonHandleSearch = () => {
     setIsLoading(true);
     if (search === "") {
-      alert("Search Cannot Be Empty");
+      toast.error("Search can't be empty");
     } else {
       getSearchTracks(search, token).then((data) => {
         dispatch(storeTracksList(data.tracks.items));
@@ -67,7 +67,7 @@ export default function CreatePlaylist() {
         )
       );
 
-      alert("Create New Playlist Has Been Successfully");
+      toast.success("Create New Playlist Has Been Successfully.");
 
       setPostPlaylist({
         name: "",
@@ -117,6 +117,7 @@ export default function CreatePlaylist() {
             />
           )}
         </div>
+        <Toaster position="top-right" />
       </div>
     </div>
   );
