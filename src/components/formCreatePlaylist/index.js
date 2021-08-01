@@ -2,7 +2,7 @@ import React from "react";
 
 import style from "./form.module.css";
 
-const FormCreateNewPlaylist = ({
+const FormCreatePlaylist = ({
   postPlaylist,
   setPostPlaylist,
   handleFormSubmit,
@@ -40,4 +40,4 @@ const FormCreateNewPlaylist = ({
   );
 };
 
-export default FormCreateNewPlaylist;
+export default FormCreatePlaylist;

@@ -4,23 +4,24 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 //  ? components
-import SearchBar from "../../components/searchBar";
-import FormCreateNewPlaylist from "../../components/formCreateNewPlaylist";
-import TrackList from "../../components/trackList";
-import TrackSkeleton from "../../components/trackSkeleton";
-import Navbar from "../../components/layouts/navbar";
+import SearchBar from "components/searchBar";
+import FormCreatePlaylist from "components/formCreatePlaylist";
+import TrackList from "components/trackList";
+import TrackSkeleton from "components/trackSkeleton";
+import Navbar from "components/layouts/navbar";
 
 // ! reducer area
-import { storeTracksList } from "../../redux/trackListSlice";
+import { storeTracksList } from "redux/trackListSlice";
 
 //  ? style import css
 import style from "./createPlaylist.module.css";
 
+// ? api
 import {
   getSearchTracks,
   createNewPlaylist,
   storeTracksToNewPlaylist,
-} from "../../services/apiSpotify";
+} from "api/apiSpotify";
 
 export default function CreatePlaylist() {
   // ? use data from redux store
@@ -109,7 +110,7 @@ export default function CreatePlaylist() {
 
         <div className={style["form-create-playlist"]}>
           {selectedTracks.length > 0 && (
-            <FormCreateNewPlaylist
+            <FormCreatePlaylist
               postPlaylist={postPlaylist}
               setPostPlaylist={setPostPlaylist}
               handleFormSubmit={handleFormSubmit}

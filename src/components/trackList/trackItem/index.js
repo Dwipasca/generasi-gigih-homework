@@ -1,8 +1,10 @@
 import React from "react";
 
-import convertDuration from "../../functions/convertDuration";
+import convertMusicDuration from "services/convertMusicDuration";
 
-import style from "./trackList.module.css";
+import Image from "assets/images/not-found.jpg";
+
+import style from "./trackItem.module.css";
 
 const Track = ({ track, id, selectedTracks, setSelectedTracks }) => {
   const handleButtonSelect = (e) => {
@@ -20,7 +22,11 @@ const Track = ({ track, id, selectedTracks, setSelectedTracks }) => {
         <p>{id + 1}</p>
       </div>
       <div className={style["track-image"]}>
-        <img src={track.album?.images[2].url} alt={track.name} />
+        <img
+          src={track.album.images[2]?.url ?? Image}
+          alt={track?.name}
+          style={{ width: "64px", height: "64px" }}
+        />
       </div>
       <div className={style["track-title"]}>
         <p>{track?.name}</p>
@@ -28,9 +34,8 @@ const Track = ({ track, id, selectedTracks, setSelectedTracks }) => {
       <div className={style["track-artist"]}>
         <p>{track.artists[0]?.name}</p>
       </div>
-
       <div className={style["track-duration"]}>
-        {convertDuration(track?.duration_ms)}
+        {convertMusicDuration(track.duration_ms)}
       </div>
       <div className={style["track-action"]}>
         <button
@@ -38,7 +43,7 @@ const Track = ({ track, id, selectedTracks, setSelectedTracks }) => {
           value={track?.uri}
           className={style["btn-select"]}
         >
-          {selectedTracks.includes(track?.uri) ? "Deselect" : "Select"}
+          {selectedTracks.includes(track.uri) ? "Deselect" : "Select"}
         </button>
       </div>
     </div>
