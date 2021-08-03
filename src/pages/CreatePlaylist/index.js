@@ -35,6 +35,7 @@ export default function CreatePlaylist() {
   const [isLoading, setIsLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [selectedTracks, setSelectedTracks] = useState([]);
+  // const button = "hello";
 
   const [postPlaylist, setPostPlaylist] = useState({
     name: "",
@@ -59,7 +60,7 @@ export default function CreatePlaylist() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (selectedTracks.length <= 0) {
-      alert("You have to selected song first");
+      toast.error("You have to selected song first");
     } else {
       createNewPlaylist(userID, token, postPlaylist).then((newPlaylist) =>
         storeTracksToNewPlaylist(newPlaylist.id, token, selectedTracks).then(
@@ -78,47 +79,53 @@ export default function CreatePlaylist() {
   };
 
   return (
-    <div>
+    <>
       <Navbar />
       <div className={style["wrapper-create-playlist"]}>
-        <h3>Create Playlist</h3>
-        <div className={style["search-bar"]}>
-          <SearchBar
-            search={search}
-            setSearch={setSearch}
-            buttonHandleSearch={buttonHandleSearch}
-          />
-        </div>
-
-        <div className={style["list-track"]}>
-          {isLoading ? (
-            <div>
-              <TrackSkeleton />
-              <TrackSkeleton />
-              <TrackSkeleton />
-              <TrackSkeleton />
-              <TrackSkeleton />
-            </div>
-          ) : (
-            <TrackList
-              tracks={tracks}
-              selectedTracks={selectedTracks}
-              setSelectedTracks={setSelectedTracks}
+        {/*  left section*/}
+        <div className={style["left-section"]}>
+          <div className={style["header"]}>
+            <h3>Search</h3>
+          </div>
+          <div className={style["search-bar"]}>
+            <SearchBar
+              search={search}
+              setSearch={setSearch}
+              buttonHandleSearch={buttonHandleSearch}
             />
-          )}
-        </div>
+          </div>
 
-        <div className={style["form-create-playlist"]}>
-          {selectedTracks.length > 0 && (
+          <div className={style["list-track"]}>
+            {isLoading ? (
+              <div>
+                <TrackSkeleton />
+                <TrackSkeleton />
+                <TrackSkeleton />
+                <TrackSkeleton />
+                <TrackSkeleton />
+              </div>
+            ) : (
+              <TrackList
+                tracks={tracks}
+                selectedTracks={selectedTracks}
+                setSelectedTracks={setSelectedTracks}
+              />
+            )}
+          </div>
+        </div>
+        {/*  right section  */}
+        <div className={` ${style["right-section"]} `}>
+          <h3>Create Playlist</h3>
+          <div className={style["form-create-playlist"]}>
             <FormCreatePlaylist
               postPlaylist={postPlaylist}
               setPostPlaylist={setPostPlaylist}
               handleFormSubmit={handleFormSubmit}
             />
-          )}
+          </div>
+          <Toaster position="top-right" />
         </div>
-        <Toaster position="top-right" />
       </div>
-    </div>
+    </>
   );
 }

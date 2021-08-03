@@ -32,7 +32,7 @@ const FormCreatePlaylist = ({
         value={postPlaylist.description}
         onChange={handleChange}
         rows="10"
-        cols="50"
+        cols="30"
         autoComplete="off"
       ></textarea>
       <button type="submit">Create New Playlist</button>

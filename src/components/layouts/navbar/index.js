@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 // ? reducer
-import { logout } from "../../../redux/userSlice";
+import { logout } from "redux/userSlice";
 
 const Navbar = () => {
   let history = useHistory();
@@ -25,11 +25,7 @@ const Navbar = () => {
         <h2>Spotify</h2>
       </div>
       <div className={style["menus"]}>
-        <button className={style["menu"]}>Search</button>
-        <button className={style["menu"]}>Create Playlist</button>
-        <button onClick={handleLogoutClick} className={style["menu"]}>
-          Logout
-        </button>
+        <button onClick={handleLogoutClick}>Logout</button>
       </div>
     </div>
   );

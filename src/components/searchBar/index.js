@@ -13,6 +13,7 @@ const SearchBar = ({ search, setSearch, buttonHandleSearch }) => {
         value={search}
         placeholder="search.."
         type="text"
+        autoComplete="off"
       />
       <Button
         onClick={buttonHandleSearch}

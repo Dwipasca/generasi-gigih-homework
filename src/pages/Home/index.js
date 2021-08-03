@@ -30,9 +30,12 @@ const Home = () => {
   return (
     <div className={style["wrapper-home"]}>
       <div className={style["banner"]}>
-        <h1>Web Music Player </h1>
-        <p>Welcome human, this is my app spotify clone </p>
-        <button onClick={loginAuthorizeSpotify}>PLEASE LOGIN FIRST</button>
+        <h1>WITHOUT MUSIC, LIFE WOULD BE A MISTAKE </h1>
+        <p>
+          Music gives a soul to the universe, wing to the mind, flight to the
+          imagination and life to everything.
+        </p>
+        <button onClick={loginAuthorizeSpotify}> PLEASE LOGIN FIRST</button>
       </div>
     </div>
   );

@@ -1,25 +1,47 @@
 .wrapper-create-playlist {
-  background-color: #181818;
+  background-color: #ffffff;
   min-height: 100vh;
+  display: grid;
+  grid-template-areas: " left-section right-section";
+  grid-template-columns: 4fr 1fr;
 }
 
-h3 {
+.left-section {
+  grid-area: left-section;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header button {
+  align-self: center;
+  margin-right: 30px;
+}
+
+.left-section h3 {
   padding: 30px;
-  color: whitesmoke;
 }
 
 .search-bar {
-  background-color: #181818;
-  padding: 10px 30px;
-  color: white;
+  padding: 0px 30px;
 }
 
 .list-track {
-  padding: 30px;
-  color: gainsboro;
+  padding: 15px 30px;
+}
+
+.right-section {
+  grid-area: right-section;
+  padding: 20px;
+  box-shadow: 0px 12px 10px rgb(17, 16, 16);
+}
+
+.right-section h3 {
+  padding: 20px;
 }
 
 .form-create-playlist {
-  padding: 30px;
-  color: gainsboro;
+  padding: 0px 20px;
 }
