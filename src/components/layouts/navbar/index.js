@@ -25,6 +25,7 @@ const Navbar = () => {
         <h2>Spotify</h2>
       </div>
       <div className={style["menus"]}>
+        <button>Profile</button>
         <button onClick={handleLogoutClick}>Logout</button>
       </div>
     </div>

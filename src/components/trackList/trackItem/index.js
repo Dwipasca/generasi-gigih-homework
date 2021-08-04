@@ -1,6 +1,7 @@
 import React from "react";
 
 import convertMusicDuration from "services/convertMusicDuration";
+import convertTrackTitle from "services/convertTrackTitle";
 
 import Image from "assets/images/not-found.jpg";
 
@@ -16,6 +17,7 @@ const Track = ({ track, id, selectedTracks, setSelectedTracks }) => {
       setSelectedTracks([...selectedTracks, uri]);
     }
   };
+
   return (
     <div className={style["wrapper-track-list"]}>
       <div className={style["track-number"]}>
@@ -29,11 +31,13 @@ const Track = ({ track, id, selectedTracks, setSelectedTracks }) => {
         />
       </div>
       <div className={style["track-title"]}>
-        <p>{track?.name}</p>
+        <p>{convertTrackTitle(track.name)}</p>
       </div>
       <div className={style["track-artist"]}>
         <p>{track.artists[0]?.name}</p>
       </div>
+
+      <div className={style["track-date"]}>{track.album.release_date}</div>
       <div className={style["track-duration"]}>
         {convertMusicDuration(track.duration_ms)}
       </div>

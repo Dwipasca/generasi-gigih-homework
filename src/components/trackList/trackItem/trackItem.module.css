@@ -2,11 +2,11 @@
   padding: 10px;
   margin: 10px 0px;
   display: grid;
-  grid-template-columns: 40px 80px 3fr 1fr 1fr;
+  grid-template-columns: 40px 80px 2fr 1fr 1fr 1fr;
   grid-template-rows: 30px 30px;
   grid-template-areas:
-    "number image title  duration action"
-    "number image artist  duration action";
+    "number image title  date duration action"
+    "number image artist  date duration action";
   column-gap: 10px;
   row-gap: 10px;
   align-items: center;
@@ -30,11 +30,20 @@
 
 .track-title {
   grid-area: title;
+  /* height: 30px; */
+  font-size: 18px;
+  /* background-color: aqua; */
+  margin-top: 20px;
 }
 .track-artist {
   grid-area: artist;
+  font-size: 12px;
+  height: 30px;
 }
 
+.track-date {
+  grid-area: date;
+}
 .track-duration {
   grid-area: duration;
 }
