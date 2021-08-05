@@ -1,7 +1,6 @@
 import React from "react";
 
 // ? components
-// import Navbar from "./components/layouts/navbar";
 import PrivateRoute from "./components/router/privateRouter";
 
 //  ? pages
@@ -11,6 +10,7 @@ import CreatePlaylist from "./pages/CreatePlaylist";
 // ? lib third party
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
 
 // ! redux store
 import store from "./redux/store";
@@ -21,18 +21,20 @@ function App() {
   return (
     <div className="app">
       <Provider store={store}>
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <PrivateRoute
-              component={CreatePlaylist}
-              path="/create-playlist"
-              exact
-            />
-          </Switch>
-        </Router>
+        <ChakraProvider>
+          <Router>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <PrivateRoute
+                component={CreatePlaylist}
+                path="/create-playlist"
+                exact
+              />
+            </Switch>
+          </Router>
+        </ChakraProvider>
       </Provider>
     </div>
   );
