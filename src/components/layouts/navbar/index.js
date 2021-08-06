@@ -1,15 +1,12 @@
 import React from "react";
 
-// ? style from css
-import style from "./navbar.module.css";
-
 // ? lib third party
+import { Flex, Box, Spacer, Button, Heading } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 // ? reducer
 import { logout } from "redux/userSlice";
-
 const Navbar = () => {
   let history = useHistory();
   const dispatch = useDispatch();
@@ -20,15 +17,22 @@ const Navbar = () => {
   };
 
   return (
-    <div className={style["wrapper-navbar"]}>
-      <div className={style["logo"]}>
-        <h2>Spotify</h2>
-      </div>
-      <div className={style["menus"]}>
-        <button>Profile</button>
-        <button onClick={handleLogoutClick}>Logout</button>
-      </div>
-    </div>
+    <Flex bg="orange.300" alignItems="center" width="100vw">
+      <Box p="4">
+        <Heading as="h3" size="lg" color="black">
+          Spotify
+        </Heading>
+      </Box>
+      <Spacer />
+      <Box p="4">
+        <Button size="sm">Profile</Button>
+      </Box>
+      <Box p="4">
+        <Button onClick={handleLogoutClick} size="sm">
+          Logout
+        </Button>
+      </Box>
+    </Flex>
   );
 };
 

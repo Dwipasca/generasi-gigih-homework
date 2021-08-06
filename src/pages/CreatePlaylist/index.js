@@ -1,21 +1,32 @@
 import React, { useState } from "react";
 
+//  ? components
+// import Navbar from "components/layouts/navbar";
+import SearchBar from "components/searchBar";
+import TrackList from "components/trackList";
+import TrackSkeleton from "components/trackSkeleton";
+
 // ? lib third party
 import { useSelector, useDispatch } from "react-redux";
 import toast, { Toaster } from "react-hot-toast";
-
-//  ? components
-import SearchBar from "components/searchBar";
-import FormCreatePlaylist from "components/formCreatePlaylist";
-import TrackList from "components/trackList";
-import TrackSkeleton from "components/trackSkeleton";
-import Navbar from "components/layouts/navbar";
-
-// ! reducer area
-import { storeTracksList } from "redux/trackListSlice";
-
-//  ? style import css
-import style from "./createPlaylist.module.css";
+import {
+  Flex,
+  Heading,
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Textarea,
+  Modal,
+  ModalBody,
+  ModalHeader,
+  ModalContent,
+  ModalOverlay,
+  ModalCloseButton,
+  ModalFooter,
+  useDisclosure,
+} from "@chakra-ui/react";
 
 // ? api
 import {
@@ -24,8 +35,11 @@ import {
   storeTracksToNewPlaylist,
 } from "api/apiSpotify";
 
+// ! reducer area
+import { storeTracksList } from "redux/trackListSlice";
+import Navbar from "components/layouts/navbar";
+
 export default function CreatePlaylist() {
-  // ? use data from redux store
   const token = useSelector((state) => state.user.accessToken);
   const userID = useSelector((state) => state.user.data.id);
   const tracks = useSelector((state) => state.tracks.tracksList);
@@ -35,7 +49,6 @@ export default function CreatePlaylist() {
   const [isLoading, setIsLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [selectedTracks, setSelectedTracks] = useState([]);
-  // const button = "hello";
 
   const [postPlaylist, setPostPlaylist] = useState({
     name: "",
@@ -43,6 +56,16 @@ export default function CreatePlaylist() {
     public: false,
     collaborative: false,
   });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setPostPlaylist({ ...postPlaylist, [name]: value });
+  };
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const initialRef = React.useRef();
+  const finalRef = React.useRef();
 
   const buttonHandleSearch = () => {
     setIsLoading(true);
@@ -81,51 +104,97 @@ export default function CreatePlaylist() {
   return (
     <>
       <Navbar />
-      <div className={style["wrapper-create-playlist"]}>
-        {/*  left section*/}
-        <div className={style["left-section"]}>
-          <div className={style["header"]}>
-            <h3>Search</h3>
-          </div>
-          <div className={style["search-bar"]}>
+      <Flex width="100vw" height="100vh" flexDir="column">
+        <Flex p="10" flexDir="column">
+          <Heading as="h4" size="md">
+            Search
+          </Heading>
+          <Flex
+            flexDir="row"
+            alignItems="flex-start"
+            justifyContent="space-between"
+          >
             <SearchBar
               search={search}
               setSearch={setSearch}
               buttonHandleSearch={buttonHandleSearch}
             />
-          </div>
-
-          <div className={style["list-track"]}>
-            {isLoading ? (
-              <div>
-                <TrackSkeleton />
-                <TrackSkeleton />
-                <TrackSkeleton />
-                <TrackSkeleton />
-                <TrackSkeleton />
-              </div>
-            ) : (
-              <TrackList
-                tracks={tracks}
-                selectedTracks={selectedTracks}
-                setSelectedTracks={setSelectedTracks}
-              />
-            )}
-          </div>
-        </div>
-        {/*  right section  */}
-        <div className={` ${style["right-section"]} `}>
-          <h3>Create Playlist</h3>
-          <div className={style["form-create-playlist"]}>
-            <FormCreatePlaylist
-              postPlaylist={postPlaylist}
-              setPostPlaylist={setPostPlaylist}
-              handleFormSubmit={handleFormSubmit}
+            <Button width={200} alignSelf="flex-end" onClick={onOpen}>
+              Create Playlist
+            </Button>
+          </Flex>
+        </Flex>
+        <Box pl="10" pr="10">
+          {isLoading ? (
+            <div>
+              <TrackSkeleton />
+              <TrackSkeleton />
+              <TrackSkeleton />
+              <TrackSkeleton />
+              <TrackSkeleton />
+            </div>
+          ) : (
+            <TrackList
+              tracks={tracks}
+              selectedTracks={selectedTracks}
+              setSelectedTracks={setSelectedTracks}
             />
-          </div>
-          <Toaster position="top-right" />
-        </div>
-      </div>
+          )}
+        </Box>
+        <Toaster position="top-right" />
+      </Flex>
+
+      <Modal
+        initialFocusRef={initialRef}
+        finalFocusRef={finalRef}
+        isOpen={isOpen}
+        onClose={onClose}
+      >
+        <ModalOverlay />
+        <form onSubmit={handleFormSubmit}>
+          <ModalContent>
+            <ModalHeader>Create Playlist</ModalHeader>
+            <ModalCloseButton />
+
+            <ModalBody pb={6}>
+              <FormControl>
+                <FormLabel>Playlist Name</FormLabel>
+                <Input
+                  ref={initialRef}
+                  id="name"
+                  name="name"
+                  type="text"
+                  minLength="10"
+                  value={postPlaylist.name}
+                  onChange={handleChange}
+                />
+              </FormControl>
+              <FormControl mt={4}>
+                <FormLabel>Description</FormLabel>
+                <Textarea
+                  id="description"
+                  name="description"
+                  minLength="20"
+                  value={postPlaylist.description}
+                  onChange={handleChange}
+                />
+              </FormControl>
+            </ModalBody>
+
+            <ModalFooter>
+              <Button
+                type="submit"
+                colorScheme="green"
+                mr={3}
+                onClick={onClose}
+              >
+                Create New Playlist
+              </Button>
+              <Button onClick={onClose}>Cancel</Button>
+            </ModalFooter>
+          </ModalContent>
+        </form>
+      </Modal>
     </>
   );
 }

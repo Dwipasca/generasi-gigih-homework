@@ -1,29 +1,33 @@
 import React from "react";
-
-import Button from "../button";
-import style from "./searchBar.module.css";
+import { Flex, Button, Input, InputGroup, Text } from "@chakra-ui/react";
 
 const SearchBar = ({ search, setSearch, buttonHandleSearch }) => {
   return (
-    <div className={style["wrapper-search-bar"]}>
-      <p>Lets find something for your new playlist</p>
-      <input
-        id="input-search"
-        onChange={(e) => setSearch(e.target.value)}
-        value={search}
-        placeholder="search.."
-        type="text"
-        autoComplete="off"
-      />
-      <Button
-        onClick={buttonHandleSearch}
-        buttonStyle="btn-success"
-        buttonSize="btn-medium"
-        type="button"
-      >
-        Search
-      </Button>
-    </div>
+    <Flex flexDir="column">
+      <Text mt={3} mb={2}>
+        Lets find something for your new playlist
+      </Text>
+      <InputGroup>
+        <Input
+          id="input-search"
+          placeholder="Search.."
+          size="md"
+          variant="filled"
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+          type="text"
+          mr="5"
+        />
+        <Button
+          id="btn-search"
+          onClick={buttonHandleSearch}
+          size="md"
+          width="150px"
+        >
+          Search
+        </Button>
+      </InputGroup>
+    </Flex>
   );
 };
 

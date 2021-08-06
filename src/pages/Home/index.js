@@ -8,11 +8,11 @@ import { useDispatch } from "react-redux";
 import { loginAuthorizeSpotify, getAccessTokenFromURL } from "api/authSpotify";
 import { getProfile } from "api/apiSpotify";
 
-// ? style import css
-import style from "./home.module.css";
-
 // ! reducer area
 import { login, storeUserData } from "redux/userSlice";
+
+// ? style import css
+import { Flex, Heading, Text, Button } from "@chakra-ui/react";
 
 const Home = () => {
   let history = useHistory();
@@ -28,16 +28,29 @@ const Home = () => {
   }, [dispatch, history]);
 
   return (
-    <div className={style["wrapper-home"]}>
-      <div className={style["banner"]}>
-        <h1>WITHOUT MUSIC, LIFE WOULD BE A MISTAKE </h1>
-        <p>
+    <Flex height="100vh" alignItems="center" justifyContent="center">
+      <Flex
+        flexDirection="column"
+        background="gray.100"
+        p={20}
+        rounded={20}
+        alignItems="center"
+      >
+        <Heading mb={6}>WITHOUT MUSIC, LIFE WOULD BE A MISTAKE</Heading>
+        <Text mb={5}>
           Music gives a soul to the universe, wing to the mind, flight to the
           imagination and life to everything.
-        </p>
-        <button onClick={loginAuthorizeSpotify}> PLEASE LOGIN FIRST</button>
-      </div>
-    </div>
+        </Text>
+        <Button
+          onClick={loginAuthorizeSpotify}
+          colorScheme="pink"
+          variant="solid"
+          width="200px"
+        >
+          Please Login First
+        </Button>
+      </Flex>
+    </Flex>
   );
 };
 
