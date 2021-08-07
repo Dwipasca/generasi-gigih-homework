@@ -26,6 +26,7 @@ function App() {
           <Router>
             <Switch>
               <Route exact path="/">
+                {/* <Sidebar /> */}
                 <Home />
               </Route>
               <PrivateRoute

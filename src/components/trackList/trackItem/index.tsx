@@ -7,11 +7,37 @@ import Image from "assets/images/not-found.jpg";
 
 import style from "./trackItem.module.css";
 
-const Track = ({ track, id, selectedTracks, setSelectedTracks }) => {
-  const handleButtonSelect = (e) => {
-    let uri = e.target.value;
+type TrackItem = {
+  track: {
+    album: {
+      images: {
+        [index: number]: {
+          url: string;
+        };
+      };
+      release_date: string;
+    };
+    name: string;
+    artists: {
+      [index: number]: {
+        name: string;
+      };
+    };
+    duration_ms: number;
+    uri: string;
+  };
+  id: string;
+  selectedTracks: Array<string>;
+  setSelectedTracks: (query: string[]) => void;
+};
+
+const Track = ({ track, id, selectedTracks, setSelectedTracks }: TrackItem) => {
+  const handleButtonSelect = (id: string) => {
+    let uri: string = id;
     if (selectedTracks.includes(uri)) {
-      let newPlaylist = selectedTracks.filter((track) => track !== uri);
+      let newPlaylist: string[] = selectedTracks.filter(
+        (track) => track !== uri
+      );
       setSelectedTracks(newPlaylist);
     } else {
       setSelectedTracks([...selectedTracks, uri]);
@@ -43,8 +69,7 @@ const Track = ({ track, id, selectedTracks, setSelectedTracks }) => {
       </div>
       <div className={style["track-action"]}>
         <button
-          onClick={(e) => handleButtonSelect(e)}
-          value={track?.uri}
+          onClick={() => handleButtonSelect(track?.uri)}
           className={style["btn-select"]}
         >
           {selectedTracks.includes(track.uri) ? "Deselect" : "Select"}

@@ -14,6 +14,8 @@ import { login, storeUserData } from "redux/userSlice";
 // ? style import css
 import { Flex, Heading, Text, Button } from "@chakra-ui/react";
 
+import style from "./home.module.css";
+
 const Home = () => {
   let history = useHistory();
   const dispatch = useDispatch();
@@ -28,24 +30,34 @@ const Home = () => {
   }, [dispatch, history]);
 
   return (
-    <Flex height="100vh" alignItems="center" justifyContent="center">
+    <Flex
+      height="100vh"
+      alignItems="center"
+      justifyContent="flex-start"
+      className={style["home-background"]}
+    >
       <Flex
         flexDirection="column"
-        background="gray.100"
-        p={20}
-        rounded={20}
-        alignItems="center"
+        p={10}
+        alignItems="flex-start"
+        color="whitesmoke"
       >
-        <Heading mb={6}>WITHOUT MUSIC, LIFE WOULD BE A MISTAKE</Heading>
-        <Text mb={5}>
-          Music gives a soul to the universe, wing to the mind, flight to the
-          imagination and life to everything.
-        </Text>
+        <Heading as="h4" size="2xl">
+          WITHOUT MUSIC, LIFE
+        </Heading>
+        <Heading mb={5} as="h2" size="2xl">
+          WOULD BE A MISTAKE
+        </Heading>
+        <Text>Music gives a soul to the universe, wings to the mind,</Text>
+        <Text mb={5}>flight to the imagination and life to everything.</Text>
         <Button
+          className={style["btn-login"]}
+          id="btn-login"
           onClick={loginAuthorizeSpotify}
-          colorScheme="pink"
           variant="solid"
           width="200px"
+          colorScheme="yellow"
+          type="button"
         >
           Please Login First
         </Button>

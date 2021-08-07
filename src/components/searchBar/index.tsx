@@ -1,7 +1,13 @@
 import React from "react";
 import { Flex, Button, Input, InputGroup, Text } from "@chakra-ui/react";
 
-const SearchBar = ({ search, setSearch, buttonHandleSearch }) => {
+type SearchTrack = {
+  search: string;
+  setSearch: (query: string) => void;
+  buttonHandleSearch: React.MouseEventHandler<HTMLButtonElement>;
+};
+
+const SearchBar = ({ search, setSearch, buttonHandleSearch }: SearchTrack) => {
   return (
     <Flex flexDir="column">
       <Text mt={3} mb={2}>
