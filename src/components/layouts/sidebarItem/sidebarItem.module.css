@@ -1,0 +1,15 @@
+/* .navbar-item:last-child {
+  margin-top: auto;
+  margin-bottom: 20px;
+} */
+
+.navbar-item:hover {
+  background-color: #ecc94b;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.active {
+  background-color: #ecc94b;
+  font-weight: bold;
+}

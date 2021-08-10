@@ -1,65 +1,41 @@
 import React, { useState } from "react";
 
-import {
-  Flex,
-  Divider,
-  Heading,
-  Text,
-  Avatar,
-  IconButton,
-} from "@chakra-ui/react";
-import { FiMenu, FiHome, FiFilePlus } from "react-icons/fi";
+import { Flex, Image, Heading } from "@chakra-ui/react";
 
-import userIcon from "assets/icons/user.svg";
-import NavItem from "../navItem";
+import menuIcon from "assets/icons/menu.svg";
+
+import NavbarItem from "components/layouts/sidebarItem";
+
+import style from "./sidebar.module.css";
 
 const Sidebar = () => {
-  const [navbar, setnavbar] = useState(true);
-
-  const handleNavbarClick = () => {
-    setnavbar(!navbar);
-  };
-
+  const [navbar, setNavbar] = useState(true);
   return (
     <Flex
-      pos="fixed"
-      h="100vh"
-      w={navbar ? "75px" : "200px"}
-      boxShadow="0 4px 12px 0 rgba(0,0,0,0.05)"
+      h="auto"
+      pos="sticky"
+      backgroundColor="yellow.500"
       flexDir="column"
-      justifyContent="space-between"
+      alignItems="center"
+      className={navbar ? style["navbar"] : style["navbar-full"]}
     >
       <Flex
-        p="5%"
-        flexDir="column"
-        alignItems={navbar ? "center" : "flex-start"}
-      >
-        <IconButton mt={5} icon={<FiMenu />} onClick={handleNavbarClick} />
-
-        <NavItem navbar={navbar} icon={FiHome} title="Home" active />
-        <NavItem navbar={navbar} icon={FiFilePlus} title="Create Playlist" />
-      </Flex>
-
-      <Flex
-        p="5%"
-        flexDir="column"
+        className={style["navbar-trigger"]}
+        mt={8}
         w="100%"
-        alignItems={navbar ? "center" : "flex-start"}
-        mb={4}
+        h="40px"
+        alignItems="center"
+        onClick={() => {
+          setNavbar(!navbar);
+        }}
       >
-        <Divider display={navbar ? "none" : "flex"} />
-        <Flex mt={4}>
-          <Avatar src={userIcon} size="sm" />
-          <Flex flexDir="column" ml={4} display={navbar ? "none" : "flex"}>
-            <Heading as="h3" size="sm">
-              Dwi Pasca
-            </Heading>
-            <Text color="gray" size="sm">
-              User
-            </Text>
-          </Flex>
-        </Flex>
+        <Image src={menuIcon} w="20px" mr="20px" ml="20px" />
+        <Heading as="h3" size="md">
+          {navbar ? "" : "Spotify"}
+        </Heading>
       </Flex>
+      {/* ------------------------ */}
+      <NavbarItem navbar={navbar} active />
     </Flex>
   );
 };

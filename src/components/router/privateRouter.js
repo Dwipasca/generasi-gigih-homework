@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Layout from "components/layouts/layout";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const isLogin = useSelector((state) => state.user.isAuthenticated);
@@ -8,8 +9,12 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     <div>
       <Route
         {...rest}
-        render={(props) =>
-          isLogin === true ? <Component {...props} /> : <Redirect to="/" />
+        render={() =>
+          isLogin === true ? (
+            <Layout component={Component} />
+          ) : (
+            <Redirect to="/" />
+          )
         }
       />
     </div>

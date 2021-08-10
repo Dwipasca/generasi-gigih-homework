@@ -32,7 +32,7 @@ type TrackItem = {
 };
 
 const Track = ({ track, id, selectedTracks, setSelectedTracks }: TrackItem) => {
-  const handleButtonSelect = (id: string) => {
+  const handleButtonSelect = (id: string): void => {
     let uri: string = id;
     if (selectedTracks.includes(uri)) {
       let newPlaylist: string[] = selectedTracks.filter(
@@ -57,15 +57,19 @@ const Track = ({ track, id, selectedTracks, setSelectedTracks }: TrackItem) => {
         />
       </div>
       <div className={style["track-title"]}>
-        <p>{convertTrackTitle(track.name)}</p>
+        <p data-testid="track-name">{convertTrackTitle(track.name)}</p>
       </div>
       <div className={style["track-artist"]}>
-        <p>{track.artists[0]?.name}</p>
+        <p data-testid="track-artist">{track.artists[0]?.name}</p>
       </div>
 
-      <div className={style["track-date"]}>{track.album.release_date}</div>
+      <div className={style["track-date"]}>
+        <p data-testid="track-date">{track.album.release_date}</p>
+      </div>
       <div className={style["track-duration"]}>
-        {convertMusicDuration(track.duration_ms)}
+        <p data-testid="track-duration">
+          {convertMusicDuration(track.duration_ms)}
+        </p>
       </div>
       <div className={style["track-action"]}>
         <button

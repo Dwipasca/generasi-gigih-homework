@@ -37,7 +37,6 @@ import {
 
 // ! reducer area
 import { storeTracksList } from "redux/trackListSlice";
-import Navbar from "components/layouts/navbar";
 
 export default function CreatePlaylist() {
   const token = useSelector((state) => state.user.accessToken);
@@ -103,8 +102,7 @@ export default function CreatePlaylist() {
 
   return (
     <>
-      <Navbar />
-      <Flex width="100vw" height="100vh" flexDir="column">
+      <Flex w="90%" h="100%" minH="100vh" flexDir="column">
         <Flex p="10" flexDir="column">
           <Heading as="h4" size="md">
             Search
@@ -119,7 +117,13 @@ export default function CreatePlaylist() {
               setSearch={setSearch}
               buttonHandleSearch={buttonHandleSearch}
             />
-            <Button width={200} alignSelf="flex-end" onClick={onOpen}>
+            <Button
+              width={200}
+              alignSelf="flex-end"
+              onClick={onOpen}
+              colorScheme="green"
+              isDisabled={selectedTracks.length > 0 ? false : true}
+            >
               Create Playlist
             </Button>
           </Flex>

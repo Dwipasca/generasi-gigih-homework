@@ -1,0 +1,14 @@
+.navbar {
+  width: 60px;
+  transition: 0.5s ease-in-out;
+}
+
+.navbar-full {
+  width: 180px;
+  transition: 0.5s ease-in-out;
+}
+
+.navbar-trigger:hover {
+  background-color: #ecc94b;
+  cursor: pointer;
+}

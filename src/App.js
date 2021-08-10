@@ -6,7 +6,6 @@ import PrivateRoute from "./components/router/privateRouter";
 //  ? pages
 import Home from "./pages/Home";
 import CreatePlaylist from "./pages/CreatePlaylist";
-// import Sidebar from "components/layouts/sidebar";
 
 // ? lib third party
 import { Provider } from "react-redux";
@@ -26,7 +25,6 @@ function App() {
           <Router>
             <Switch>
               <Route exact path="/">
-                {/* <Sidebar /> */}
                 <Home />
               </Route>
               <PrivateRoute
