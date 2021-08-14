@@ -9,7 +9,6 @@ const TrackSkeleton = () => {
       <div className={style["track-image"]}></div>
       <div className={style["track-title"]}></div>
       <div className={style["track-artist"]}></div>
-
       <div className={style["track-duration"]}></div>
       <div className={style["track-action"]}></div>
     </div>

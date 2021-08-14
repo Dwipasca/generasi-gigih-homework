@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 // ? reducer
-import { logout } from "redux/userSlice";
+import { logout } from "redux/authSlice";
 const Navbar = () => {
   let history = useHistory();
   const dispatch = useDispatch();

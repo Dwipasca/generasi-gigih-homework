@@ -26,9 +26,9 @@ const createNewPlaylist = (userID, accessToken, newPlaylist) => {
     },
     body: JSON.stringify({
       name: newPlaylist.name,
+      description: newPlaylist.description,
       public: false,
       collaborative: false,
-      description: newPlaylist.description,
     }),
   }).then((res) => res.json());
 };

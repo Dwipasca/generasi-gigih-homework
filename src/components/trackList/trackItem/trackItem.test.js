@@ -46,9 +46,7 @@ describe("TrackItem", () => {
     render(
       <TrackItem
         track={fakeTrack}
-        selectedTracks={
-          SelectedTracks.includes(fakeTrack.uri) ? "Deselect" : "Select"
-        }
+        selectedTracks={SelectedTracks.includes(fakeTrack.uri) ? "Deselect" : "Select"}
       />
     );
 
@@ -59,11 +57,7 @@ describe("TrackItem", () => {
 
     expect(artistName).toHaveTextContent(fakeTrack.artists[0].name);
     expect(trackName).toHaveTextContent(convertTrackTitle(fakeTrack.name));
-    expect(duration).toHaveTextContent(
-      convertMusicDuration(fakeTrack.duration_ms)
-    );
-    expect(releseDate).toHaveTextContent(
-      convertTrackTitle(fakeTrack.album.release_date)
-    );
+    expect(duration).toHaveTextContent(convertMusicDuration(fakeTrack.duration_ms));
+    expect(releseDate).toHaveTextContent(fakeTrack.album.release_date);
   });
 });

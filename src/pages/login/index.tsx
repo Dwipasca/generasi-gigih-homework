@@ -2,29 +2,29 @@ import React, { useEffect } from "react";
 
 // ?lib third party
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "redux/store";
 
 // ? api
 import { loginAuthorizeSpotify, getAccessTokenFromURL } from "api/authSpotify";
 import { getProfile } from "api/apiSpotify";
 
 // ! reducer area
-import { login, storeUserData } from "redux/userSlice";
+import { login, storeUser } from "redux/authSlice";
 
 // ? style import css
 import { Flex, Heading, Text, Button } from "@chakra-ui/react";
 
 import style from "./home.module.css";
 
-const Home = () => {
+const Login = () => {
   let history = useHistory();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (window.location.hash) {
       const { access_token } = getAccessTokenFromURL(window.location.hash);
       dispatch(login(access_token));
-      getProfile(access_token).then((data) => dispatch(storeUserData(data)));
+      getProfile(access_token).then((data) => dispatch(storeUser(data)));
       history.push("/create-playlist");
     }
   }, [dispatch, history]);
@@ -36,12 +36,7 @@ const Home = () => {
       justifyContent="flex-start"
       className={style["home-background"]}
     >
-      <Flex
-        flexDirection="column"
-        p={10}
-        alignItems="flex-start"
-        color="whitesmoke"
-      >
+      <Flex flexDirection="column" p={10} alignItems="flex-start" color="whitesmoke">
         <Heading as="h4" size="2xl">
           WITHOUT MUSIC, LIFE
         </Heading>
@@ -66,4 +61,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Login;

@@ -33,11 +33,9 @@ type TrackItem = {
 
 const Track = ({ track, id, selectedTracks, setSelectedTracks }: TrackItem) => {
   const handleButtonSelect = (id: string): void => {
-    let uri: string = id;
+    const uri: string = id;
     if (selectedTracks.includes(uri)) {
-      let newPlaylist: string[] = selectedTracks.filter(
-        (track) => track !== uri
-      );
+      const newPlaylist: string[] = selectedTracks.filter((track) => track !== uri);
       setSelectedTracks(newPlaylist);
     } else {
       setSelectedTracks([...selectedTracks, uri]);
@@ -67,12 +65,11 @@ const Track = ({ track, id, selectedTracks, setSelectedTracks }: TrackItem) => {
         <p data-testid="track-date">{track.album.release_date}</p>
       </div>
       <div className={style["track-duration"]}>
-        <p data-testid="track-duration">
-          {convertMusicDuration(track.duration_ms)}
-        </p>
+        <p data-testid="track-duration">{convertMusicDuration(track.duration_ms)}</p>
       </div>
       <div className={style["track-action"]}>
         <button
+          data-testid="track-select-btn"
           onClick={() => handleButtonSelect(track?.uri)}
           className={style["btn-select"]}
         >

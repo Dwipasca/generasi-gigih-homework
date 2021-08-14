@@ -23,12 +23,14 @@ const SearchBar = ({ search, setSearch, buttonHandleSearch }: SearchTrack) => {
           value={search}
           type="text"
           mr="5"
+          autoComplete="off"
         />
         <Button
           id="btn-search"
           onClick={buttonHandleSearch}
           size="md"
           width="150px"
+          isDisabled={search === "" ? true : false}
         >
           Search
         </Button>
